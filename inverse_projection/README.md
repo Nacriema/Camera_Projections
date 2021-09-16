@@ -19,63 +19,39 @@ We can find the equations of the perspective projection
 
 ![](./images/im_4.jpg)
 
-From OA'B' and OAB we have: $\frac{f}{Z} = \frac{r}{R}$
-From A'B'C' and ABC we have: \frac{x}{X} = \frac{y}{Y} = \frac{r}{R}
+From OA'B' and OAB we have:  
+![](https://latex.codecogs.com/svg.latex?%5Cfrac%7Bf%7D%7BZ%7D%20%3D%20%5Cfrac%7Br%7D%7BR%7D)
 
-Then **perspective projection equation**: $x = \frac{Xf}{Z}, y = \frac{Yf}{Z}, z = f$
+From A'B'C' and ABC we have:
+
+![](https://latex.codecogs.com/svg.latex?%5Cfrac%7Bx%7D%7BX%7D%20%3D%20%5Cfrac%7By%7D%7BY%7D%20%3D%20%5Cfrac%7Br%7D%7BR%7D)
+
+
+Then **perspective projection equation**:
+![](https://latex.codecogs.com/svg.latex?x%20%3D%20%5Cfrac%7BXf%7D%7BZ%7D%2C%20y%20%3D%20%5Cfrac%7BYf%7D%7BZ%7D%2C%20z%20%3D%20f)
+
 
 Using matrix notation:
 
-$\begin{bmatrix}x_h
-\\ y_h
-\\ z_h
-\\ w
-\end{bmatrix}  = \begin{bmatrix}
-f &0  &0  &0 \\ 
-0 &f  &0  &0 \\ 
-0 &0  &f  &1 \\ 
-0 &0  &1  &0 
-\end{bmatrix}\begin{bmatrix}X
-\\ Y
-\\ Z
-\\ 1
-\end{bmatrix}$
+![](https://latex.codecogs.com/svg.latex?%5Cbegin%7Bbmatrix%7Dx_h%20%5C%5C%20y_h%20%5C%5C%20z_h%20%5C%5C%20w%20%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20f%20%260%20%260%20%260%20%5C%5C%200%20%26f%20%260%20%260%20%5C%5C%200%20%260%20%26f%20%261%20%5C%5C%200%20%260%20%261%20%260%20%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7DX%20%5C%5C%20Y%20%5C%5C%20Z%20%5C%5C%201%20%5Cend%7Bbmatrix%7D)
+
 
 Verify the correctness of the above matrix (homogenize using w=Z)
 
-$x = \frac{x_h}{w} = \frac{fX}{Z}, y = \frac{y_h}{w} = \frac{fY}{Z}, z = \frac{z_h}{w} = f$
+![](https://latex.codecogs.com/svg.latex?x%20%3D%20%5Cfrac%7Bx_h%7D%7Bw%7D%20%3D%20%5Cfrac%7BfX%7D%7BZ%7D%2C%20y%20%3D%20%5Cfrac%7By_h%7D%7Bw%7D%20%3D%20%5Cfrac%7BfY%7D%7BZ%7D%2C%20z%20%3D%20%5Cfrac%7Bz_h%7D%7Bw%7D%20%3D%20f)
+
 
 Because we the image on the 2D image plane, then the z coordinate of the 3D point in the image plane is f, we just want
 the x, and y coordinate on the image, the above matrix equation can minimize at:
 
-$\begin{bmatrix}x_h
-\\ y_h
-\\ w
-\end{bmatrix}  = \begin{bmatrix}
-f &0  &0  &0 \\ 
-0 &f  &0  &0 \\  
-0 &0  &1  &0 
-\end{bmatrix}\begin{bmatrix}X
-\\ Y
-\\ Z
-\\ 1
-\end{bmatrix}$ 
+![](https://latex.codecogs.com/svg.latex?%5Cbegin%7Bbmatrix%7Dx_h%20%5C%5C%20y_h%20%5C%5C%20w%20%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20f%20%260%20%260%20%260%20%5C%5C%200%20%26f%20%260%20%260%20%5C%5C%200%20%260%20%261%20%260%20%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7DX%20%5C%5C%20Y%20%5C%5C%20Z%20%5C%5C%201%20%5Cend%7Bbmatrix%7D)
+
 
 One thing that we should know that the image root is not coincides with principal point, let's call the principal point 
-coordinate on image plane is $(u_0, v_0)$, then our matrix equation becomes:
+coordinate on image plane is ![](https://latex.codecogs.com/svg.latex?%28u_0%2C%20v_0%29) , then our matrix equation becomes:
 
-\begin{bmatrix}x_h
-\\ y_h
-\\ w
-\end{bmatrix}  = \begin{bmatrix}
-f &0  &u_0  &0 \\ 
-0 &f  &v_0  &0 \\  
-0 &0  &1  &0 
-\end{bmatrix}\begin{bmatrix}X
-\\ Y
-\\ Z
-\\ 1
-\end{bmatrix}
+![](https://latex.codecogs.com/svg.latex?%5Cbegin%7Bbmatrix%7Dx_h%20%5C%5C%20y_h%20%5C%5C%20w%20%5Cend%7Bbmatrix%7D%20%3D%20%5Cbegin%7Bbmatrix%7D%20f%20%260%20%26u_0%20%260%20%5C%5C%200%20%26f%20%26v_0%20%260%20%5C%5C%200%20%260%20%261%20%260%20%5Cend%7Bbmatrix%7D%5Cbegin%7Bbmatrix%7DX%20%5C%5C%20Y%20%5C%5C%20Z%20%5C%5C%201%20%5Cend%7Bbmatrix%7D)
+
 
 In general, there are **three different** coordinate systems related to map the point in real word into a point on 2D 
 image:
@@ -98,13 +74,13 @@ Translation in H.C:
 ![](./images/im_8.png)
 
 In homogeneous coordinates, this can be done by:
-$X_c = R(X_w - C)$
+![](https://latex.codecogs.com/svg.latex?X_c%20%3D%20R%28X_w%20-%20C%29)
+
 
 When we apply them, we get the general mapping of a pinhole camera:
 
-$P = KR \begin{bmatrix}
-I| -C
-\end{bmatrix}$
+![](https://latex.codecogs.com/svg.latex?P%20%3D%20KR%20%5Cbegin%7Bbmatrix%7D%20I%7C%20-C%20%5Cend%7Bbmatrix%7D)
+
 
 And in Matrix form: 
 
@@ -140,11 +116,11 @@ From the given formular, suppose that we no need to consider the extrinsic matri
 
 Then the u, v of point (X, Y, Z, 1) in the camera coordinate on the image plane is: 
 
-$u = f\frac{X}{Z} + u_0, v = f\frac{Y}{Z} + v_0$
+![](https://latex.codecogs.com/svg.latex?u%20%3D%20f%5Cfrac%7BX%7D%7BZ%7D%20&plus;%20u_0%2C%20v%20%3D%20f%5Cfrac%7BY%7D%7BZ%7D%20&plus;%20v_0)
 
 Then we can easily compute the X, Y of the point in real-word:
 
-$X = (u - u_0)\frac{Z}{f}, Y = (v - v_0)\frac{Z}{f}$
+![](https://latex.codecogs.com/svg.latex?X%20%3D%20%28u%20-%20u_0%29%5Cfrac%7BZ%7D%7Bf%7D%2C%20Y%20%3D%20%28v%20-%20v_0%29%5Cfrac%7BZ%7D%7Bf%7D)
 
 In above equation, we need (u,v) coordinate of pixel on image, also the Z-depth image to recover the points in word coordinate.
 

@@ -131,16 +131,18 @@ Tr_velo_to_cam = [[ 7.533745e-03 -9.999714e-01 -6.166020e-04 -4.069766e-03]
 
 And from [[6] in References](#references):
 
-* vel_to_ref: rotate & translate point from velodyn coord to reference camera (cam0) coordinate. (this is the 'Tr_velo_to_cam'), in the data they provided the $R_{velo}^{cam}$ and $t_{velo}^{cam}$
+* vel_to_ref: rotate & translate point from velodyn coord to reference camera (cam0) coordinate. (this is the 'Tr_velo_to_cam'), in the data they provided the ![](https://latex.codecogs.com/svg.latex?R_%7Bvelo%7D%5E%7Bcam%7D%24%20and%20%24t_%7Bvelo%7D%5E%7Bcam%7D) .
+
 ![Vel_to_ref_def](../images/im_3.png)
 
 * ref_to_cam: is the rectifying rotation for referenced coordinate (rectification makes images of multiple cameras lie on the
 same plan) (this is the 'R0_rect') (**this is also known as the rotation matrix to map from object coordinate to reference coordinate**)
+
 ![ref_to_cam](../images/im_5.png)
 * cam_to_img: rotate & translate point from main camera (cam2) coord to image pixel coord. (this is the 'P2')
 ![cam_to_img](../images/im_4.png)
 * Then the chain of transformation is describe as: 
-$y = P_{rect}^{(i)}.R_{rect}^(0).T_{velo}^{cam}.x$ with x is the point in velodyne coordinate.
+![](https://latex.codecogs.com/svg.latex?y%20%3D%20P_%7Brect%7D%5E%7B%28i%29%7D.R_%7Brect%7D%5E%7B%280%29%7D.T_%7Bvelo%7D%5E%7Bcam%7D.x) with x is the point in velodyne coordinate.
 
 ```Ok, I think 3 lines above are the best definition for those parameters``` 
 
